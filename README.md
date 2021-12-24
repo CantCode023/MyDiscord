@@ -1,4 +1,4 @@
-<img src="https://cdn.discordapp.com/attachments/918732557103824896/923977501284380732/unknown.png"><br>
+<img src="https://cdn.discordapp.com/attachments/918732557103824896/923977976616452146/unknown.png"><br>
 Control your Discord client with Python.
 
 # Docs
