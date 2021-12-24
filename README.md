@@ -6,7 +6,7 @@ Control your Discord client with Python.
 # Installing required files
 1. Make a new file named ".env"
 2. Inside .env, write token="YourDiscordTokenHere"
-3. Install MyDiscord with "pip install git+https://github.com/CantCode023/MyDiscord.git" and install dotenv with pip install python-dotenv
+3. Install MyDiscord with pip install mydiscord and install dotenv with pip install python-dotenv
 4. Make a new Python file
 
 # Setting Up The Python File
