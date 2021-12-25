@@ -225,15 +225,15 @@ class Client:
                 return "There was an error!\n{}".format(traceback.format_exc())
 
     def removeFriend(self, userid:int):
-        url = f"https://discord.com/api/v9/users/@me/relationships/{int}"
+        url = f"https://discord.com/api/v9/users/@me/relationships/{userid}"
         headers = {
             "authorization": self.token
         }
         try:
             resp = requests.delete(url, headers=headers)
             if resp.status_code == 204:
-                return f"Removed {id} from friend list."
+                return f"Removed {userid} from friend list."
             else:
-                return "There was an error! Please check your arguments."
+                return "There was an erorr! Please check your arguments."
         except Exception:
             return "There was an error!\n{}".format(traceback.format_exc())
