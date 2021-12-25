@@ -34,10 +34,9 @@ class Client:
         url = "https://discord.com/api/v9/users/@me/settings"
         headers = {
             "authorization": self.token,
-            "user-agent": "Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) discord/1.0.9003 Chrome/91.0.4472.164 Electron/13.4.0 Safari/537.36",
-            "accept": "*/*"
+            "content-type": "application/json"
         }
-        data = {"custom_status": {"text": str(status)}}
+        data = str({"custom_status": {"text": str(status)}}).replace("'",'"')
         try:
             resp = requests.patch(url, headers=headers, data=data)
             if resp.status_code == 200:
