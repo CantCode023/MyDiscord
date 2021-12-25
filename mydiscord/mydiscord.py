@@ -36,13 +36,18 @@ class Client:
             "authorization": self.token,
             "content-type": "application/json"
         }
-        data = str({"custom_status": {"text": str(status)}}).replace("'",'"')
+        data = {
+            "custom_status": {
+                "text": status
+            }
+        }
+
         try:
-            resp = requests.patch(url, headers=headers, data=data)
+            resp = requests.patch(url, headers=headers, data=json.dumps(data))
             if resp.status_code == 200:
-                return json.loads(resp.text)
+                return resp.text
             else:
-                return "There was an error! Please check your arguments again."
+                return traceback.format_exc()
         except Exception:
             return "There was an error!{}".format(traceback.format_exc())
 
