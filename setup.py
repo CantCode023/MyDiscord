@@ -14,7 +14,7 @@ setup_info = {
     "url": "https://github.com/CantCode023/MyDiscord",
     "packages": setuptools.find_packages(),
     "classifiers": [
-        "Programming Language :: Python3",
+        "Programming Language :: Python :: 3",
     ],
     "python_requires": '>=3.7',
     "install_requires": [
