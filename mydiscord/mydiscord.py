@@ -45,7 +45,7 @@ class Client:
         try:
             resp = requests.patch(url, headers=headers, data=json.dumps(data))
             if resp.status_code == 200:
-                return resp.text
+                return json.loads(resp.text)
             else:
                 return traceback.format_exc()
         except Exception:
@@ -203,7 +203,7 @@ class Client:
         try:
             resp = requests.post(url, headers=headers, data=data)
             if resp.status_code == 204:
-                return "Added " + user
+                return user
             else:
                 return "There was an erorr! Please check your arguments."
         except:
@@ -218,8 +218,22 @@ class Client:
             try:
                 resp = requests.put(url, headers=headers, data=data)
                 if resp.status_code == 204:
-                    return "Added " + user
+                    return user, id
                 else:
                     return "There was an erorr! Please check your arguments."
             except Exception:
                 return "There was an error!\n{}".format(traceback.format_exc())
+
+    def removeFriend(self, userid:int):
+        url = f"https://discord.com/api/v9/users/@me/relationships/{int}"
+        headers = {
+            "authorization": self.token
+        }
+        try:
+            resp = requests.delete(url, headers=headers)
+            if resp.status_code == 204:
+                return f"Removed {id} from friend list."
+            else:
+                return "There was an error! Please check your arguments."
+        except Exception:
+            return "There was an error!\n{}".format(traceback.format_exc())
