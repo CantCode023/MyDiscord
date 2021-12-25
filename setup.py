@@ -5,7 +5,7 @@ with open("README.md", "r", encoding="utf-8") as fh:
 
 setup_info = {
     "name": "mydiscord",
-    "version": "1.0.0",
+    "version": "1.0.2",
     "author": "CantCode",
     "author_email": "cantcode023@gmail.com",
     "description": "MyDiscord, Control your Discord client with Python.",
@@ -14,7 +14,7 @@ setup_info = {
     "url": "https://github.com/CantCode023/MyDiscord",
     "packages": setuptools.find_packages(),
     "classifiers": [
-        "Programming Language :: Python :: 3",
+        "Programming Language :: Python3",
     ],
     "python_requires": '>=3.7',
     "install_requires": [
