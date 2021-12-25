@@ -115,7 +115,7 @@ print(g)
 
 # Adding a new friend
 You can also add new friend with MyDiscord<br>
-Arguments needed are: User (string) and UserID (int and optional, only use UserID if you get an error.)v
+Arguments needed are: User (string) and UserID (int and optional, only use UserID if you get an error.)
 
 Example:
 ```python
@@ -130,6 +130,19 @@ print(h)
 
 # Check if you've successfully added user to your pending friend list. If you get an error, please contact us: cantcode023@gmail.com
 ```
+
+# Remove a friend
+You can also remove friend from your friend list.<br>
+Argument needed is: UserID (int)
+
+Example:
+```python
+userid = 00000000000
+
+k = client.removeFriend(userid)
+# only in version 1.0.6. Always do "pip install -U mydiscord" everyday to get the new release of mydiscord
+```
+
 
 # Setting Status
 You can now set your status from old to new!<br>
@@ -165,5 +178,7 @@ print(j)
 
 # Check if you've successfully made an invite link of the discord server. If you get an error, please contact us: cantcode023@gmail.com
 ```
+
+# BY THE WAY! ALWAYS REMEMBER TO DO "pip install -U mydiscord" EVERYDAY TO GET THE LASTEST MYDISCORD VERSION!
 
 # THE END OF DOCS! THANKS FOR READING!!
