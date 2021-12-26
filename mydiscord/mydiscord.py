@@ -237,3 +237,24 @@ class Client:
                 return "There was an erorr! Please check your arguments."
         except Exception:
             return "There was an error!\n{}".format(traceback.format_exc())
+
+    def setNote(self, userid:int, note:str):
+        url = f"https://discord.com/api/v9/users/@me/notes/{userid}"
+        
+        headers = {
+            "authorization": self.token,
+            "content-type": "application/json"
+        }
+
+        data = {
+            "note": note
+        }
+
+        try:
+            resp = requests.put(url, headers=headers, data=json.dumps(data))
+            if resp.status_code == 204:
+                return  f"Successfully added the note {note} to {userid}"
+            else:
+                return "There was an erorr! Please check your arguments."
+        except Exception:
+            return "There was an erorr!\n{}".format(traceback.format_exc())

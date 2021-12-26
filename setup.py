@@ -5,7 +5,7 @@ with open("README.md", "r", encoding="utf-8") as fh:
 
 setup_info = {
     "name": "mydiscord",
-    "version": "1.0.6",
+    "version": "1.0.7",
     "author": "CantCode",
     "author_email": "cantcode023@gmail.com",
     "description": "MyDiscord, Control your Discord client with Python.",
