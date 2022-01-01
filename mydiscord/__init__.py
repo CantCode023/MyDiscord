@@ -1,6 +1,6 @@
 __author__ = "mydiscord"
 __copyright__ = "Copyright 2021-present CantCode"
-__version__ = "1.0.7"
+__version__ = "1.0.8"
 
 import logging
 from typing import NamedTuple

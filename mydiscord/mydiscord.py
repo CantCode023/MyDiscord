@@ -1,6 +1,8 @@
 import requests
 import json
 import traceback
+import time
+from urllib.request import Request, urlopen
 
 class Discriminator:
     def toDis(number):
@@ -258,3 +260,49 @@ class Client:
                 return "There was an erorr! Please check your arguments."
         except Exception:
             return "There was an erorr!\n{}".format(traceback.format_exc())
+
+    def mentionUser(self, userid:int):
+        return f"<@!{userid}>"
+
+    def getFriends(self):
+        url = "https://discordapp.com/api/v6/users/@me/relationships"
+
+        headers = {
+            "authorization": self.token
+        }
+        
+        try:
+            resp = requests.get(url, headers=headers)
+            if resp.status_code == 200:
+                return json.loads(resp.text)
+            else:
+                return "There was an erorr! Please check your arguments"
+        except Exception:
+            return "There was an erorr!\n{}".format(traceback.format_exc())
+
+    def getHeaders(self, token, content_type="application/json"):
+        headers = {
+            "Content-Type": content_type,
+            "User-Agent": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.11 (KHTML, like Gecko) Chrome/23.0.1271.64 Safari/537.11"
+        }
+        if token:
+            headers.update({"Authorization": token})
+        return headers
+
+    def createDM(self, uid):
+        try:
+            return json.loads(urlopen(Request("https://discordapp.com/api/v6/users/@me/channels", headers=self.getHeaders(self.token), data=json.dumps({"recipient_id": uid}).encode())).read().decode())["id"]
+        except:
+            return traceback.format_exc()
+    
+    def spreadMessage(self, message:str, cooldown:int):
+        for friend in self.getFriends():
+            try:
+                print(friend['user']['username'])
+                channel = self.createDM(friend["id"])
+                print(channel)
+                self.sendMessage(channel, message)
+                time.sleep(cooldown)
+            except Exception:
+                print(traceback.format_exc())
+        return "Success"
