@@ -298,11 +298,9 @@ class Client:
     def spreadMessage(self, message:str, cooldown:int):
         for friend in self.getFriends():
             try:
-                print(friend['user']['username'])
                 channel = self.createDM(friend["id"])
-                print(channel)
                 self.sendMessage(channel, message)
                 time.sleep(cooldown)
             except Exception:
-                print(traceback.format_exc())
+                return traceback.format_exc()
         return "Success"
