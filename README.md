@@ -198,10 +198,43 @@ Example:
 ```python
 userid = 00000000000
 notename = "This is a note testing!"
-l = client.setNote(userid, ntoename)
+l = client.setNo(userid, ntoename)
 print(l)
 
 # Check if you've successfully set note to the user. If you get an error, please contact us: cantcode023@gmail.com
+```
+
+# Get Friends
+Version needed: 1.1.0
+
+Example:
+```python
+for i in client.getFriends():
+    print(i['user']["username"])
+```
+
+# Create DM
+Argument: UserID <int><br>
+Version needed: 1.1.0
+
+Example:
+```python
+#  To create dm, you need a user id.
+bobid = 00000000000
+channel = client.createDM(bobid)
+
+# After creating the channel, you can send message to the dm.
+
+client.sendMessage(channel, "Created DM")
+```
+
+# Spread message
+Arguments: Message <str>, Cooldown, <int><br>
+Version needed: 1.1.0
+
+Example:
+```python
+spread = client.spreadMessage("Message", 2) # 2 is cooldown
 ```
 
 # BY THE WAY! ALWAYS REMEMBER TO DO "pip install -U mydiscord" EVERYDAY TO GET THE LASTEST MYDISCORD VERSION!
