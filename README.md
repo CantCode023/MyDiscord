@@ -214,7 +214,7 @@ for i in client.getFriends():
 ```
 
 # Create DM
-Argument: UserID <int><br>
+Argument: UserID (int)<br>
 Version needed: 1.1.0
 
 Example:
@@ -229,7 +229,7 @@ client.sendMessage(channel, "Created DM")
 ```
 
 # Spread message
-Arguments: Message <str>, Cooldown, <int><br>
+Arguments: Message (str), Cooldown, (int)<br>
 Version needed: 1.1.0
 
 Example:
